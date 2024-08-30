@@ -1,0 +1,63 @@
+.header {
+    background-color: #000000;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: fixed; /* Hace que el header sea estático */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+  
+.logo {
+    width: 120px;
+    height: auto;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el logo */
+}
+
+.wallet-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre los elementos dentro del contenedor */
+}
+
+.wallet-balance {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacio entre el ícono de BTC, el balance y la flecha */
+    background-color: #1a1a1a;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.btc-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.arrow-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.wallet-button {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.wallet-button:hover {
+    background-color: #0056b3;
+}
+
+.profile-icon {
+    color: white;
+    cursor: pointer;
+}

@@ -1,0 +1,96 @@
+.wallet-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    z-index: 1001;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.wallet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.wallet-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.wallet-tabs button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.wallet-tabs .active {
+    color: #0CE07B;
+    font-weight: bold;
+}
+
+.wallet-content {
+    text-align: center;
+}
+
+.crypto-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.crypto-option {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    text-align: center;
+    width: 70px;
+    transition: background-color 0.3s ease;
+}
+
+.crypto-option.selected {
+    border: 2px solid #0CE07B;
+}
+
+.crypto-option img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.wallet-form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.deposit-button {
+    background-color: #0CE07B;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

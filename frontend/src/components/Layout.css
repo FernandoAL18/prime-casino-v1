@@ -1,0 +1,335 @@
+/* General Layout */
+.layout-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #000000;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #000000;
+    box-shadow: 0px 4px 15px rgba(132, 132, 132, 0.5);
+    color: #ffffff;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar.expanded {
+    width: 200px;
+}
+
+/* Hide the sidebar entirely on mobile devices */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0; /* Ensure content takes up the full width */
+    }
+
+    .header {
+        left: 0;
+        width: 100%; /* Expand the header to full width */
+    }
+}
+
+.toggle-button {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.sidebar-menu li {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the icons in collapsed mode */
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.sidebar-menu li:hover {
+    background-color: #000000;
+}
+
+.sidebar-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.sidebar.collapsed .sidebar-icon {
+    margin-right: 0; /* Remove the margin-right in collapsed mode to center icons */
+}
+
+.sidebar.collapsed .sidebar-menu li {
+    justify-content: center; /* Ensure icons are centered in collapsed mode */
+}
+
+.sidebar.collapsed .sidebar-menu li span {
+    display: none; /* Oculta el texto cuando el sidebar está colapsado */
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 30px; /* Default margin when sidebar is collapsed */
+    padding: 20px;
+    transition: margin-left 0.3s ease, padding-left 0.3s ease;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+.sidebar-expanded .main-content {
+    margin-left: 100px; /* Ajuste para cuando el sidebar está expandido */
+}
+
+/* Header */
+.header {
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure space between the logo and the user menu */
+    box-shadow: 0px 4px 15px rgba(137, 137, 137, 0.5);
+    position: fixed;
+    top: 0;
+    left: 60px; /* Aligns header to the right of the collapsed sidebar */
+    width: calc(100% - 60px); /* Makes the header fill the remaining width */
+    transition: left 0.3s ease, width 0.3s ease;
+    z-index: 999; /* Keeps the header above other elements */
+}
+
+.header-expanded {
+    left: 200px; /* Adjusts header alignment with the expanded sidebar */
+    width: calc(100% - 200px); /* Adjust the width according to the sidebar's expanded state */
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* User Menu Icon */
+.user-menu-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 50px; /* Adjust this margin to move the user icon more to the left */
+}
+
+.user-icon {
+    width: 25px;
+    height: auto;
+    cursor: pointer;
+}
+
+.wallet-container {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #0CE07B;
+    position: relative; /* Asegura que el menú se posicione relativo a este contenedor */
+}
+
+.wallet-balance {
+    display: flex;
+    align-items: center;
+    background-color: #08090A;
+    font-size: 12px;
+    color: #ffffff;
+    padding: 15px 7px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #0CE07B;
+    border-right: none;
+    cursor: pointer; /* Añade cursor de pointer para indicar que es clickeable */
+}
+
+.btc-icon {
+    height: 15px;
+    margin-right: 5px;
+}
+
+.wallet-balance span {
+    font-weight: bold; /* Números en bold */
+}
+
+.arrow-icon {
+    height: 10px;
+    margin-left: 5px;
+}
+
+.wallet-button {
+    background-color: #0CE07B;
+    color: white;
+    border: none;
+    padding: 15px 12px;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #0CE07B;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold; /* Texto en bold */
+}
+
+.balance-menu {
+    position: absolute;
+    top: 120%; /* Coloca el menú justo debajo del balance */
+    left: -35px;
+    background-color: #1a1a1a;
+    padding: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    z-index: 1000;
+    width: 200px; /* Ancho fijo para el menú */
+    font-size: 13px;
+    font-weight: bold; /* Texto en bold */
+}
+
+.balance-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.balance-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    color: #ffffff;
+    cursor: pointer; /* Añade cursor de pointer */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones */
+}
+
+.balance-list li:hover {
+    background-color: #292929;
+    transform: translateX(5px); /* Efecto de deslizamiento hacia la derecha */
+}
+
+.balance-list img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* User Dropdown Menu */
+.user-menu {
+    position: absolute;
+    top: 40px; /* Position the menu right under the icon */
+    right: 0;
+    background-color: #ffffff; /* White background for the menu */
+    color: #000000; /* Dark text for readability */
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.user-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.user-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-menu li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Content */
+.content {
+    padding-top: 80px; /* Accounts for the fixed header height */
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+}
+
+/* Bottom Menu for Mobile */
+.menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #000000;
+    display: none;
+    justify-content: space-around;
+    padding: 12px 0;
+    z-index: 1000;
+    box-shadow: 0px -2px 10px rgba(72, 72, 72, 0.5);
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+}
+
+.icon {
+    width: 20px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.label {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar.collapsed {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .header {
+        left: 0;
+        width: 100%;
+    }
+
+    .menu {
+        display: flex; /* Muestra el menú solo en móviles */
+    }
+}
+
+@media (min-width: 769px) {
+    .menu {
+        display: none; /* Oculta el menú en pantallas más grandes */
+    }
+}

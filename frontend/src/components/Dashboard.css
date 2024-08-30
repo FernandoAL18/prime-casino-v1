@@ -1,0 +1,173 @@
+/* Dashboard Styles */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal del fondo */
+}
+
+.main-container {
+    width: 100%;
+    padding: 20px;
+    margin-left: 0; /* Asegura que no haya margen cuando el sidebar esté oculto */
+}
+
+.main-content {
+    width: 100%;
+    padding: 20px;
+    background-color: #000000;
+    overflow-y: auto;
+    overflow-x: hidden; /* Asegura que el contenido principal no se desplace horizontalmente */
+}
+
+/* Sección de Promociones al inicio */
+.promotions-section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Ajustes de tamaño específicos para las promociones */
+.promo-card {
+    background-color: transparent;
+    padding: 20px; /* Aumenta el padding para un mayor tamaño */
+    text-align: center;
+    flex: 0 0 auto;
+    width: 250px; /* Aumenta el ancho de las tarjetas de promociones */
+    cursor: pointer;
+    scroll-snap-align: start;
+}
+
+.promo-image {
+    width: 400%;
+    max-width: 400px; /* Aumenta el tamaño máximo de la imagen en promociones */
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(128, 0, 128, 0.5);
+}
+
+/* Estilos para las otras secciones */
+.popular-slots-section,
+.live-casino-section,
+.new-releases-section,
+.game-shows-section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.sub-heading {
+    font-size: 20px;
+}
+
+.slots-wrapper,
+.promotions-wrapper {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal del contenedor de slots/promotions */
+}
+
+.slots-container {
+    display: flex;
+    gap: 15px; /* Espacio entre las tarjetas de slots */
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+.promotions-container {
+    display: flex;
+    gap: 150px; /* Espacio más amplio entre las tarjetas de promociones */
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+
+.slot-card {
+    background-color: transparent;
+    padding: 15px; /* Incrementa el padding para un mayor tamaño */
+    text-align: center;
+    flex: 0 0 auto;
+    width: 150px; /* Incrementa el ancho de las tarjetas */
+    cursor: pointer;
+    scroll-snap-align: start;
+}
+
+.slot-image {
+    width: 100%;
+    max-width: 150px; /* Tamaño máximo de la imagen */
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(128, 0, 128, 0.5);
+}
+
+/* Fading effect on the right side */
+.fade-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background-image: linear-gradient(to left, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+    pointer-events: none;
+}
+
+/* Responsiveness */
+
+@media (max-width: 768px) {
+    .slot-card {
+        width: 120px; /* Ajuste para pantallas más pequeñas */
+    }
+
+    .main-container {
+        width: 100%;
+        margin-left: -40px;
+    }
+
+    .promo-card {
+        width: 160px; /* Ajuste para pantallas más pequeñas */
+    }
+
+    .slot-image {
+        max-width: 200px; /* Ajuste para pantallas más pequeñas */
+    }
+
+    .promo-image {
+        max-width: 310px; /* Ajuste para pantallas más pequeñas */
+    }
+
+    .slots-container {
+        display: flex;
+        gap: 2px; /* Reduce el espacio entre tarjetas en pantallas pequeñas */
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+
+    .promotions-container {
+        display: flex;
+        gap: 130px; /* Reduce el espacio entre tarjetas en pantallas pequeñas */
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+}
