@@ -7,15 +7,16 @@ const app = express();
 // Conectar a la base de datos
 connectDB();
 
+// Configuración de CORS con opciones específicas
+const corsOptions = {
+  origin: 'https://www.primecasino.io', // Permitir solicitudes solo desde este dominio
+  optionsSuccessStatus: 200, // Responder con un estatus 200 para solicitudes exitosas
+};
+
+app.use(cors(corsOptions)); // Aplicar configuración de CORS
+
 // Middleware para parsear JSON
 app.use(express.json());
-
-// Habilitar CORS con configuración específica para tu frontend
-app.use(cors({
-    origin: 'https://www.primecasino.io', // Cambia esto a tu dominio de frontend
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
 
 // Definir rutas
 app.use('/api/auth', require('./routes/auth'));
