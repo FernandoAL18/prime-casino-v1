@@ -6,29 +6,21 @@ const PROFILE_URL = `${process.env.REACT_APP_BACKEND_URL}/api/user/profile`;
 const UPDATE_BALANCE_URL = `${process.env.REACT_APP_BACKEND_URL}/api/user/update-balance`;
 
 export const registerUser = async (userData) => {
-    try {
-        const response = await axios.post(REGISTER_URL, userData, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        return response.data;
-    } catch (error) {
-        throw error.response?.data || { msg: 'Unknown error' };
-    }
+  try {
+    const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/register`, userData);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || { msg: 'Unknown error' };
+  }
 };
 
 export const loginUser = async (userData) => {
-    try {
-        const response = await axios.post(LOGIN_URL, userData, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        return response.data;
-    } catch (error) {
-        throw error.response?.data || { msg: 'Unknown error' };
-    }
+  try {
+    const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`, userData);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || { msg: 'Unknown error' };
+  }
 };
 
 export const getUserProfile = async (token) => {
