@@ -10,13 +10,17 @@ connectDB();
 // Middleware para parsear JSON
 app.use(express.json());
 
-// Habilitar CORS
-app.use(cors());
+// Habilitar CORS con configuración específica para tu frontend
+app.use(cors({
+    origin: 'https://www.primecasino.io', // Cambia esto a tu dominio de frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 // Definir rutas
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/user', require('./routes/userRoutes'));
-app.use('/api/keno', require('./routes/kenoRoutes'));  // <- Asegúrate de que esto está aquí
+app.use('/api/keno', require('./routes/kenoRoutes'));  // Asegúrate de que esto está aquí
 
 const PORT = process.env.PORT || 5001;
 
