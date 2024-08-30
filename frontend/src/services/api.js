@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { REGISTER_URL, LOGIN_URL, PROFILE_URL, UPDATE_BALANCE_URL } from './config';
+
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
+export const REGISTER_URL = `${BASE_URL}/api/auth/register`;
+export const LOGIN_URL = `${BASE_URL}/api/auth/login`;
+export const PROFILE_URL = `${BASE_URL}/api/user/profile`;
+export const UPDATE_BALANCE_URL = `${BASE_URL}/api/user/update-balance`;
 
 export const registerUser = async (userData) => {
   try {
